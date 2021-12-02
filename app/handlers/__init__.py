@@ -2,6 +2,8 @@ from aiogram import Dispatcher
 from aiogram.dispatcher.filters import CommandStart
 from loguru import logger
 
+from . import menu
+from . import quiz
 from .choose_language import choose_language_handler
 from .error_handler import errors_handler
 from .start import start_handler
@@ -14,6 +16,9 @@ def setup(dp: Dispatcher):
 
     # catch language
     dp.register_callback_query_handler(choose_language_handler, lang_callback.filter())
+
+    menu.setup(dp)
+    quiz.setup(dp)
 
     # catch all errors
     dp.register_errors_handler(errors_handler)

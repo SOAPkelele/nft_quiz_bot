@@ -1,1 +1,1 @@
-from .calories import CaloriesCount
+from .test_progress import TestProgress

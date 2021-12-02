@@ -9,4 +9,6 @@ I18N_DOMAIN = "QUIZ_BOT"
 BASE_DIR = Path(__file__).parent.parent
 LOCALES_DIR = BASE_DIR / "locales"
 
+BOT_DISPATCHER_KEY = "BOT_DISPATCHER"
+
 i18n = I18nMiddleware(I18N_DOMAIN, LOCALES_DIR, default="en")

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-01 22:46+0300\n"
-"PO-Revision-Date: 2021-12-01 22:47+0300\n"
+"POT-Creation-Date: 2021-12-02 01:05+0300\n"
+"PO-Revision-Date: 2021-12-02 01:05+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -20,5 +20,17 @@ msgstr ""
 
 #: app/handlers/start.py:14
 msgid "Выберите ваш язык"
-msgstr "Choose your language"
+msgstr ""
+
+#: app/keyboards/inline/menu.py:14
+msgid "Узнать больше о локалтрейд"
+msgstr ""
+
+#: app/keyboards/inline/menu.py:17
+msgid "Доступные тесты"
+msgstr ""
+
+#: app/keyboards/inline/menu.py:21
+msgid "Пройденные тесты"
+msgstr ""
 

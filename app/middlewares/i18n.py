@@ -26,9 +26,9 @@ class I18nMiddleware(BaseI18nMiddleware):
     }
 
     async def get_user_locale(self, action: str, args: Tuple[Any]) -> str:
-        logger.info(args)
-
+        # logger.info(args[0])
         user: dict = args[0]["from"]
         data: dict = args[-1]
-
-        return await data["bot"].get(DB_KEY).get_user_lang(user["id"]) or user["language_code"] or self.default
+        lang = await data["bot"].get(DB_KEY).get_user_lang(user["id"]) or user["language_code"] or self.default
+        # logger.info(lang)
+        return lang
