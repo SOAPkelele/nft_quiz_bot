@@ -14,7 +14,7 @@ class Answer:
 class Question:
     id: int
     question: str
-    points: str
+    points: int
 
     answer_options: List[Answer] = field(init=False, default=None)
 
@@ -25,7 +25,7 @@ class Question:
                 return answer_option.description
 
     @property
-    def correct_answer_num(self):
+    def correct_answer_id(self):
         for i, answer_option in enumerate(self.answer_options):
             if answer_option.is_true:
                 return i
@@ -35,7 +35,7 @@ class Question:
         return {
             "question": self.question,
             "options": [option.answer for option in self.answer_options],
-            "correct_option_id": self.correct_answer_num,
+            "correct_option_id": self.correct_answer_id,
             "explanation": self.answer_description,
             "type": "quiz",
             "is_anonymous": False

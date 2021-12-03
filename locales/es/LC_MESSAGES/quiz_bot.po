@@ -1,4 +1,4 @@
-# English translations for PROJECT.
+# Spanish translations for PROJECT.
 # Copyright (C) 2021 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-12-03 21:42+0300\n"
-"PO-Revision-Date: 2021-12-02 01:05+0300\n"
+"PO-Revision-Date: 2021-12-03 21:38+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
-"Language-Team: en <LL@li.org>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,15 +20,15 @@ msgstr ""
 
 #: app/handlers/start.py:19
 msgid "Выберите ваш язык"
-msgstr "Choose your language"
+msgstr "Elija su idioma"
 
 #: app/handlers/menu/main_menu.py:26
 msgid "Информация о LocalTrade"
-msgstr "Learn more about LocalTrade"
+msgstr "Obtener más información sobre LocalTrade"
 
 #: app/handlers/menu/tests_menu.py:39
 msgid "Доступные тесты:"
-msgstr "Open tests:"
+msgstr "Pruebas disponibles:"
 
 #: app/handlers/menu/tests_menu.py:49
 msgid "Вы прошли все тесты!"
@@ -43,27 +43,27 @@ msgid ""
 "Поздравляем! Вы ответили правильно на <b>{correct_answers}</b> вопросов "
 "из <b>{total_questions}</b>. Вы заработали <b>{earned_points}</b> баллов."
 " Вы круче <b>{percent_better}%</b> юзеров."
-msgstr "Congrats! You’ve passed the test. You've answered <b>{correct_answers}</b> from <b>{total_questions}</b>. "
-"Your score is: <b>{earned_points}</b> points. You’ve scored better than "
-"<b>{percent_better}%</b> of users."
+msgstr ""
+"¡Enhorabuena! Respondió correctamente a  <b>{correct_answers}</b> preguntas de <b>{total_questions}</b>. "
+"Ha ganado <b>{earned_points}</b> puntos. Es  más guay que el <b>{percent_better}%</b> de los usuarios."
 
 #: app/handlers/quiz/quiz.py:95
 msgid ""
 "Вы уверены, что хотите преждевременно завершить тест? У вас больше не "
 "будет возможности его пройти."
-msgstr "Are you sure that you want to finish the test prematurely? You won’t get another chance to take it."
+msgstr "¿Está seguro de que desea finalizar la prueba anticipadamente? Ya no podrá volver a  pasarlo."
 
 #: app/keyboards/inline/menu.py:14
 msgid "Узнать больше о LocalTrade"
-msgstr "Learn more about LocalTrade"
+msgstr "Obtener más información sobre LocalTrade"
 
 #: app/keyboards/inline/menu.py:18
 msgid "Доступные тесты"
-msgstr "Open tests"
+msgstr "Pruebas disponibles"
 
 #: app/keyboards/inline/menu.py:22
 msgid "Пройденные тесты"
-msgstr "Passed tests"
+msgstr "Pruebas aprobadas"
 
 #: app/keyboards/inline/menu.py:26
 msgid "Сменить язык"
@@ -71,36 +71,36 @@ msgstr ""
 
 #: app/keyboards/inline/menu.py:33
 msgid "Вернуться назад"
-msgstr "Back"
+msgstr "Volver atrás "
 
 #: app/keyboards/inline/tests.py:17
 msgid "Начать тест"
-msgstr "Start test"
+msgstr "Empezar la prueba "
 
 #: app/keyboards/inline/tests.py:18
 msgid "Закрыть тест"
-msgstr "Close test"
+msgstr "Cerrar la prueba "
 
 #: app/keyboards/inline/tests.py:25
 msgid "Завершить тест"
-msgstr "Finish test"
+msgstr "Finalizar la prueba "
 
 #: app/keyboards/inline/tests.py:31
 msgid "Да, завершить тест"
-msgstr "Yes, finish test."
+msgstr "Sí, finalizar la prueba "
 
 #: app/keyboards/inline/tests.py:34
 msgid "Нет, продолжить тест"
-msgstr "No, continue."
+msgstr "No, seguir la prueba "
 
 #: app/keyboards/inline/tests.py:43
 msgid "Главное меню"
-msgstr "Main menu"
+msgstr "Menú principal"
 
 #: app/keyboards/inline/tests.py:47
 msgid "Пройти другой тест"
-msgstr "Take another test."
+msgstr "Hacer otra prueba "
 
 #~ msgid "Узнать больше о локалтрейд"
-#~ msgstr "Learn more about LocalTrade"
+#~ msgstr "Obtener más información sobre LocalTrade"
 

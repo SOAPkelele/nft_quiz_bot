@@ -18,7 +18,7 @@ async def menu_handler(call: types.CallbackQuery):
 
 # helper
 async def send_menu(message: types.Message):
-    await message.answer("Menu", reply_markup=menu_keyboard)
+    await message.answer("***bot name***", reply_markup=menu_keyboard)
 
 
 async def learn_more_handler(call: types.CallbackQuery):

@@ -23,7 +23,7 @@ async def get_finished_tests(db: Database, user_id: int):
 
 async def available_tests_handler(call: types.CallbackQuery):
     logger.info(f"User [{call.from_user.id}] wants to check available tests")
-    await call.answer(cache_time=5)
+    await call.answer()
 
     text, keyboard = await get_available_tests(db=call.bot[DB_KEY], user_id=call.from_user.id)
 
@@ -45,6 +45,8 @@ async def get_available_tests(db: Database, user_id: int):
             test_names.append("#{number}. {test_name}".format(number=i + 1, test_name=test.name))
             keyboard.row(InlineKeyboardButton(f"{i + 1}", callback_data=choose_test_callback.new(test_id=test.id)))
         message.append("\n".join(test_names))
+    else:
+        message.append(_("Вы прошли все тесты!"))
     keyboard.row(back_to_menu_button)
 
     return "\n\n".join(message), keyboard
@@ -53,7 +55,7 @@ async def get_available_tests(db: Database, user_id: int):
 async def show_test_handler(call: types.CallbackQuery, callback_data: Dict):
     test_id = int(callback_data.get("test_id"))
     logger.info(f"User [{call.from_user.id}] wants to check test [ID:{test_id}]")
-    await call.answer(cache_time=5)
+    await call.answer()
 
     text, keyboard = await get_test(db=call.bot[DB_KEY], user_id=call.from_user.id, test_id=test_id)
 

@@ -17,4 +17,4 @@ def setup(dp: Dispatcher):
     dp.middleware.setup(EnvironmentMiddleware())
     dp.middleware.setup(ThrottlingMiddleware())
     # dp.middleware.setup(MyBase())
-    # dp.middleware.setup(I18nMiddleware(I18N_DOMAIN, LOCALES_DIR, default="en"))
+    dp.middleware.setup(I18nMiddleware(I18N_DOMAIN, LOCALES_DIR, default="en"))

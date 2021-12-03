@@ -33,9 +33,18 @@ class Database(DatabaseBase):
         values = (lang, user_id)
         await self.pool.execute(sql, *values)
 
+    async def save_user_stats(self, user_id: int, test_id: int, correct_answers: int, points: int):
+        sql, values = self._insert_args(table="user_tests",
+                                        column_values={"user_id": user_id,
+                                                       "test_id": test_id,
+                                                       "correct_answers": correct_answers,
+                                                       "points": points})
+        await self.pool.execute(sql, *values)
+
     async def get_finished_tests(self, user_id: int):
         sql = """"""
         values = (user_id,)
+        await self.pool.fetch(sql, *values)
 
     async def get_available_tests(self, user_id: int) -> Optional[List[Test]]:
         sql = """SELECT t.id, tt.name, tt.description
