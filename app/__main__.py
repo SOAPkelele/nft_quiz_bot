@@ -31,7 +31,7 @@ async def on_shutdown(dp):
     logger.warning("Bye!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     setup_logger("INFO", ["sqlalchemy.engine", "aiogram.bot.api"])
 
     config = load_config()
