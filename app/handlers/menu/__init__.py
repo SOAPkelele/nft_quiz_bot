@@ -3,7 +3,7 @@ from loguru import logger
 
 from .main_menu import menu_handler, learn_more_handler, set_language_handler
 from .tests_menu import finished_tests_handler, available_tests_handler, choose_test_callback
-from ...keyboards.inline.menu import menu_callback
+from ...keyboards import menu_callback
 from .tests_menu import show_test_handler
 
 

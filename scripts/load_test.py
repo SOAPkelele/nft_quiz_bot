@@ -1,6 +1,6 @@
+import asyncio
 from dataclasses import dataclass, field
 from typing import List
-import asyncio
 
 import pandas as pd
 from asyncpg import Pool, create_pool
@@ -102,8 +102,6 @@ async def main():
 
     languages = ["ru", "en", "es", "pt"]
 
-    # ADD TEST, THEN TEST TEXTS
-
     df = pd.read_csv(FILE_NAME)
 
     config = load_config()
@@ -111,41 +109,37 @@ async def main():
 
     test_id = await db.add_test()
 
-    NAMES = df.iloc[NAME_INDEX]
-    DESCRIPTIONS = df.iloc[DESCRIPTION_INDEX]
+    names_row = df.iloc[NAME_INDEX]
+    description_row = df.iloc[DESCRIPTION_INDEX]
 
     for language in languages:
-        await db.add_test_text(test_id=test_id, lang=language, name=NAMES[language], description=DESCRIPTIONS[language])
-
-    questions = []
+        await db.add_test_text(test_id=test_id, lang=language,
+                               name=names_row[language], description=description_row[language])
 
     row_count = df.shape[0]
-
     for i in range(2, row_count):
         # Находим вопрос
         if "вопрос" in str(df.iloc[i]["ru"]).lower():
             question_id = await db.add_question(test_id=test_id)
 
             # первая строка это сам вопрос
-            QUESTIONS = df.iloc[i + 1]
+            question_row = df.iloc[i + 1]
             for language in languages:
-                await db.add_question_text(question=QUESTIONS[language], lang=language, question_id=question_id)
+                await db.add_question_text(question=question_row[language], lang=language, question_id=question_id)
 
-            FLAG = True
+            flag = True
             # дальше идут варианты ответов
             for answers in range(i + 2, row_count):
-                # условие выхода это или конец таблицы или начало след вопроса
+                # условие выхода это или конец таблицы, или начало след вопроса
                 if "вопрос" in str(df.iloc[answers]["ru"]).lower():
                     break
 
-                answer_id = await db.add_answer(question_id=question_id, is_true=FLAG)
-                FLAG = False
-                ANSWERS = df.iloc[answers]
+                answer_id = await db.add_answer(question_id=question_id, is_true=flag)
+                flag = False
+                answers_row = df.iloc[answers]
 
                 for language in languages:
-                    await db.add_answer_text(answer_id=answer_id, lang=language, answer=ANSWERS[language])
-
-                # TODO write answers to db
+                    await db.add_answer_text(answer_id=answer_id, lang=language, answer=answers_row[language])
 
 
 if __name__ == "__main__":

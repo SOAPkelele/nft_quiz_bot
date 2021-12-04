@@ -3,9 +3,10 @@ from aiogram.utils.callback_data import CallbackData
 
 from app.settings import i18n
 
-menu_callback = CallbackData("MENU", "action")
-
 _ = i18n.gettext
+
+menu_callback = CallbackData("MENU", "action")
+back_to_menu_button = InlineKeyboardButton(_("Вернуться назад"), callback_data="BACK_TO_MENU")
 
 menu_keyboard = InlineKeyboardMarkup(
     row_width=2,
@@ -29,8 +30,6 @@ menu_keyboard = InlineKeyboardMarkup(
 
     ]
 )
-
-back_to_menu_button = InlineKeyboardButton(_("Вернуться назад"), callback_data="BACK_TO_MENU")
 
 back_to_menu_keyboard = InlineKeyboardMarkup(
     row_width=1,

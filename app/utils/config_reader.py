@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
@@ -26,14 +27,9 @@ class FSMStorageType:
     @property
     def storage(self):
         if self.type == "redis":
-            return RedisStorage2(host="redis")
+            return RedisStorage2()  # host="redis"
         else:
             return MemoryStorage()
-
-
-@dataclass
-class Admin:
-    id: int
 
 
 @dataclass
@@ -46,7 +42,7 @@ class Config:
     tg_bot: TgBot
     db: DB
     fsm_storage: FSMStorageType
-    admin_id: int
+    admins: List[int]
     notification_chat_id: int
     default_timezone: UTC
     skip_updates: bool
@@ -69,7 +65,7 @@ def load_config() -> Config:
         fsm_storage=FSMStorageType(
             type=env.str("FSM_STORAGE")
         ),
-        admin_id=env.int("ADMIN_ID"),
+        admins=env.list("ADMINS"),
         notification_chat_id=env.int("BROADCAST_CHAT"),
         default_timezone=timezone('Europe/Moscow'),
         skip_updates=env.bool("SKIP_UPDATES")

@@ -2,7 +2,7 @@ from aiogram import types
 from asyncpg.exceptions import UniqueViolationError
 from loguru import logger
 
-from app.keyboards.inline import language_keyboard
+from app.keyboards import language_keyboard
 from app.settings import DB_KEY, i18n
 from app.utils.db import Database
 

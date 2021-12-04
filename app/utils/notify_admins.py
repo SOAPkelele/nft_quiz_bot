@@ -1,6 +1,7 @@
 from typing import List, Union
-import logging
+
 from aiogram import Bot
+from loguru import logger
 
 
 async def notify_admins(admins: Union[List[int], List[str], int, str]):
@@ -9,4 +10,4 @@ async def notify_admins(admins: Union[List[int], List[str], int, str]):
     for admin in admins:
         await bot.send_message(text='The bot is running!', chat_id=admin)
         count += 1
-    logging.info(f"{count} admins received messages")
+    logger.info(f"{count} admins received messages")
