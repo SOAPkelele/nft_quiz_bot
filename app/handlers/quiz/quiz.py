@@ -5,7 +5,7 @@ from aiogram.dispatcher import FSMContext
 from loguru import logger
 
 from app.handlers.menu.main_menu import send_menu
-from app.keyboards.inline import finish_quiz_keyboard, confirm_finish_quiz_keyboard
+from app.keyboards.inline import finish_quiz_keyboard, confirm_finish_quiz_keyboard, menu_keyboard
 from app.models import Question
 from app.settings import DB_KEY, BOT_DISPATCHER_KEY, i18n
 from app.states import TEST_IN_PROGRESS
@@ -68,16 +68,17 @@ async def poll_answer_handler(poll: types.PollAnswer):
                                  test_id=test_id,
                                  correct_answers=correct_answers,
                                  points=earned_points)
-        return await bot.send_message(text=_("Поздравляем! "
-                                             "Вы ответили правильно на <b>{correct_answers}</b> "
-                                             "вопросов из <b>{total_questions}</b>. "
-                                             "Вы заработали <b>{earned_points}</b> баллов. "
-                                             "Вы круче <b>{percent_better}%</b> юзеров.").
-                                      format(correct_answers=correct_answers,
-                                             total_questions=question_number,
-                                             earned_points=earned_points,
-                                             percent_better=100),
-                                      chat_id=poll.user.id)
+        await bot.send_message(text=_("Поздравляем! "
+                                      "Вы ответили правильно на <b>{correct_answers}</b> "
+                                      "вопросов из <b>{total_questions}</b>. "
+                                      "Вы заработали <b>{earned_points}</b> баллов. "
+                                      "Вы круче <b>{percent_better}%</b> юзеров.").
+                               format(correct_answers=correct_answers,
+                                      total_questions=question_number,
+                                      earned_points=earned_points,
+                                      percent_better=100),
+                               chat_id=poll.user.id)
+        return await bot.send_message(chat_id=poll.user.id, text="***bot name***", reply_markup=menu_keyboard)
 
     msg = await bot.send_poll(chat_id=poll.user.id, **new_question.poll_info, reply_markup=finish_quiz_keyboard)
 
