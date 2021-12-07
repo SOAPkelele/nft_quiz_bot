@@ -40,7 +40,6 @@ def get_handled_updates_list(dp: Dispatcher) -> list:
 async def on_shutdown(dp):
     logger.warning("Shutting down..")
     await dp.bot[DB_KEY].pool.close()
-    await dp.bot.session.close()
     await dp.storage.close()
     await dp.storage.wait_closed()
     logger.warning("Bye!")

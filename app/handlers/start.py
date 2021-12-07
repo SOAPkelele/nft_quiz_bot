@@ -2,11 +2,12 @@ from aiogram import types
 from asyncpg.exceptions import UniqueViolationError
 from loguru import logger
 
-from app.keyboards import language_keyboard
-from app.settings import DB_KEY, i18n
+from app.keyboards import LanguageKb
+from app.misc import i18n
+from app.settings import DB_KEY
 from app.utils.db import Database
 
-_ = i18n.gettext
+i18n = i18n.gettext
 
 
 async def start_handler(message: types.Message):
@@ -16,7 +17,7 @@ async def start_handler(message: types.Message):
 
 
 async def send_language_keyboard(message: types.Message):
-    await message.answer(_("Выберите ваш язык"), reply_markup=language_keyboard)
+    await message.answer(i18n("Выберите ваш язык"), reply_markup=LanguageKb().get())
 
 
 async def register_user(message: types.Message):
