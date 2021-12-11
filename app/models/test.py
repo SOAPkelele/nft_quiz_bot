@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from aiogram.utils.markdown import hbold
 
@@ -6,6 +6,7 @@ from aiogram.utils.markdown import hbold
 @dataclass
 class Test:
     id: int
+    title: str
     name: str
     description: str
 

@@ -10,7 +10,7 @@ from app.utils.config_reader import load_config
 from app.utils.default_commands import setup_default_commands
 from app.utils.logger import setup_logger
 from app.utils.notify_admins import notify_admins
-from utils.db.postgresql import Database
+from app.utils.db.postgresql import Database
 
 
 async def on_startup(dp):
@@ -46,7 +46,7 @@ async def on_shutdown(dp):
 
 
 if __name__ == "__main__":
-    setup_logger("INFO", ["sqlalchemy.engine", "aiogram.bot.api"])
+    setup_logger("INFO", ["aiogram.bot.api"])
 
     config = load_config()
 

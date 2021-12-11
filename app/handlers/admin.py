@@ -1,3 +1,7 @@
+import asyncio
+import concurrent.futures
+import functools
+import os
 from typing import Dict
 
 import pandas as pd
@@ -52,10 +56,18 @@ async def send_test_stats_handler(call: types.CallbackQuery, callback_data: Dict
 
     df = pd.DataFrame.from_records(data)
     filename = FILES_DIR / f"test_{test_id}.xlsx"
-    df.to_excel(filename, index=False, sheet_name=f"test_{test_id}", encoding="utf-8")
+
+    loop = asyncio.get_running_loop()
+    with concurrent.futures.ThreadPoolExecutor() as pool:
+        await loop.run_in_executor(pool, functools.partial(df.to_excel,
+                                                           filename,
+                                                           index=False,
+                                                           sheet_name=f"test_{test_id}",
+                                                           encoding="utf-8"))
     del df
 
-    await call.message.answer_document(caption=f"Test_ID_{test_id}", document=InputFile(filename))
+    await call.message.answer_document(caption=f"#Test_ID_{test_id}", document=InputFile(filename))
+    os.remove(filename)
 
 
 async def cancel_state_handler(message: types.Message, state: FSMContext):

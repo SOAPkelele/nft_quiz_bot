@@ -53,7 +53,8 @@ async def get_available_tests(db: Database, user_id: int):
         test_names = []
         for i, test in enumerate(tests):
             test_names.append("#{number}. {test_name}".format(number=i + 1, test_name=test.name))
-            keyboard.row(types.InlineKeyboardButton(i18n("Тест #{test_num}").format(test_num=i + 1),
+            keyboard.row(types.InlineKeyboardButton(i18n("#{test_num}. {title}").format(test_num=i + 1,
+                                                                                        title=test.title),
                                                     callback_data=choose_test_callback.new(test_id=test.id)))
         message.append("\n".join(test_names))
     else:

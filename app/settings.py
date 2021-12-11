@@ -9,4 +9,4 @@ FILES_DIR = BASE_DIR / "files"
 
 BOT_DISPATCHER_KEY = "BOT_DISPATCHER"
 
-MENU_MESSAGE = "***bot name***"
+MENU_MESSAGE = "🌅 <b>[LT] University BOT</b> 🎆"

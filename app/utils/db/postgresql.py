@@ -52,7 +52,7 @@ class Database(DatabaseBase):
         await self.pool.fetch(sql, *values)
 
     async def get_available_tests(self, user_id: int) -> Optional[List[Test]]:
-        sql = """SELECT t.id, tt.name, tt.description
+        sql = """SELECT t.id, t.title, tt.name, tt.description
                     FROM tests t
                              JOIN test_texts tt on t.id = tt.test_id
                     WHERE t.status = 1
@@ -66,7 +66,7 @@ class Database(DatabaseBase):
         return [Test(**record) for record in res] if res else None
 
     async def get_test(self, test_id: int, user_id: int) -> Optional[Test]:
-        sql = """SELECT t.id, tt.name, tt.description
+        sql = """SELECT t.id, t.title, tt.name, tt.description
                 FROM tests t
                          JOIN test_texts tt ON t.id = tt.test_id
                 WHERE tt.lang = (SELECT lang FROM users WHERE user_id = $1)
@@ -171,7 +171,7 @@ class Database(DatabaseBase):
     """ADMINS"""
 
     async def get_all_tests(self) -> Optional[List[Test]]:
-        sql = """SELECT t.id, tt.name, tt.description
+        sql = """SELECT t.id, t.title, tt.name, tt.description
                     FROM tests t
                              JOIN test_texts tt ON t.id = tt.test_id
                     WHERE lang = 'ru'"""

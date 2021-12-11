@@ -27,7 +27,7 @@ class FSMStorageType:
     @property
     def storage(self):
         if self.type == "redis":
-            return RedisStorage2()  # host="redis"
+            return RedisStorage2(host="redis")
         else:
             return MemoryStorage()
 
