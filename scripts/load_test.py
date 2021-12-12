@@ -104,8 +104,13 @@ async def main():
 
     df = pd.read_csv(FILE_NAME)
 
-    config = load_config()
-    db: Database = await Database.create(db_config=config.db)
+    config = DB(
+        user="user",
+        password="password",
+        database="database",
+        host="host"
+    )
+    db: Database = await Database.create(db_config=config)
 
     test_id = await db.add_test()
 

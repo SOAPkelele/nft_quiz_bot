@@ -35,6 +35,4 @@ class I18nMiddleware(BaseI18nMiddleware):
         elif isinstance(update, types.PollAnswer):
             user: types.User = update.user
 
-        lang = await bot.get(DB_KEY).get_user_lang(user.id) or user.language_code or self.default
-        logger.info(f"Middleware info lang: {lang}")
-        return lang
+        return await bot.get(DB_KEY).get_user_lang(user.id) or user.language_code or self.default

@@ -21,13 +21,16 @@ services:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
   redis:
-    container_name: redis
-    image: redis:alpine
+    container_name: "quiz-bot-redis"
+    image: redis:6.0-alpine
+    hostname: redis
     restart: always
     networks:
       - botnet
     volumes:
-      - /redis-data:/var/lib/redis
+      - "redis_config:/usr/local/etc/redis"
+      - "redis_data:/data"
+    command: "redis-server /usr/local/etc/redis/redis.conf"
 
   tgbot:
     container_name: lt_quiz_bot
@@ -54,3 +57,17 @@ networks:
   botnet:
     # указывается драйвер сети
     driver: bridge
+
+volumes:
+    redis_config:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: './redis-config'
+    redis_data:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: './redis-data'

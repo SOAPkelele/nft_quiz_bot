@@ -56,7 +56,6 @@ async def poll_answer_handler(poll: types.PollAnswer):
     bot: Bot = poll.bot
     state = bot[BOT_DISPATCHER_KEY].current_state(chat=poll.user.id, user=poll.user.id)
     data = await state.get_data()
-    logger.info(data)
 
     db: Database = bot[DB_KEY]
     test_id = int(data.get("test_id"))
@@ -91,9 +90,11 @@ async def poll_answer_handler(poll: types.PollAnswer):
         await state.finish()
         await save_stats(db=db, bot=bot,
                          user=poll.user, test_id=test_id,
-                         correct_answers=correct_answers, earned_points=earned_points)
+                         correct_answers=correct_answers,
+                         earned_points=earned_points)
         return
 
+    await asyncio.sleep(1)
     await send_sticker(chat_id=poll.user.id, bot=poll.bot)
     msg = await bot.send_poll(chat_id=poll.user.id, **new_question.poll_info,
                               reply_markup=MenuKb().finish_quiz(gettext))
