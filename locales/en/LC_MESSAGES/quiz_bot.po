@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-12 23:23+0300\n"
+"POT-Creation-Date: 2021-12-13 00:20+0300\n"
 "PO-Revision-Date: 2021-12-12 22:00+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -21,6 +21,10 @@ msgstr ""
 #: app/handlers/start.py:20
 msgid "Выберите ваш язык"
 msgstr "Choose your language"
+
+#: app/handlers/menu/main_menu.py:12
+msgid "Они пишут о нас"
+msgstr "They write about us"
 
 #: app/handlers/menu/tests_menu.py:49
 msgid "Доступные тесты:"
@@ -52,8 +56,8 @@ msgid ""
 "из <b>{total_questions}</b>. Вы заработали <b>{earned_points}</b> баллов."
 " Вы круче <b>{percent_better}%</b> юзеров."
 msgstr ""
-"Congrats! You’ve answered <b>{correct_answers}</b> questions from "
-"<b>{total_questions}</b>. Your score is: <b>{earned_points}</b> points. "
+"Congrats! You’ve answered <b>{correct_answers}</b> out of "
+"<b>{total_questions}</b> questions. Your score is: <b>{earned_points}</b> points. "
 "You’ve scored better than <b>{percent_better}%</b> of users."
 
 #: app/handlers/quiz/quiz.py:79
@@ -77,7 +81,7 @@ msgid ""
 "Вы круче {percent_better}% юзеров."
 msgstr ""
 "Congrats, @{username}!\n"
-"You’ve answered {correct_answers} questions from {total_questions}.\n"
+"You’ve answered {correct_answers} out of {total_questions} questions.\n"
 "Your score is: {earned_points} points.\n"
 "You’ve scored better than {percent_better}% of users."
 
@@ -124,4 +128,7 @@ msgstr "Yes, finish test"
 #: app/keyboards/menu.py:55
 msgid "Нет, продолжить тест"
 msgstr "No, continue"
+
+#~ msgid "ё пишут о нас"
+#~ msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-12 23:23+0300\n"
+"POT-Creation-Date: 2021-12-13 00:20+0300\n"
 "PO-Revision-Date: 2021-12-12 22:01+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -21,6 +21,10 @@ msgstr ""
 #: app/handlers/start.py:20
 msgid "Выберите ваш язык"
 msgstr "Elija su idioma"
+
+#: app/handlers/menu/main_menu.py:12
+msgid "Они пишут о нас"
+msgstr "Ellos escriben sobre nosotros"
 
 #: app/handlers/menu/tests_menu.py:49
 msgid "Доступные тесты:"
@@ -125,4 +129,7 @@ msgstr "Sí, finalizar la prueba"
 #: app/keyboards/menu.py:55
 msgid "Нет, продолжить тест"
 msgstr "No, seguir la prueba"
+
+#~ msgid "ё пишут о нас"
+#~ msgstr ""
 
