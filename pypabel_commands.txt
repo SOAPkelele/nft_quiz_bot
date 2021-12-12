@@ -1,0 +1,5 @@
+pybabel extract app/ -o locales/quiz_bot.pot
+
+pybabel init -i locales/quiz_bot.pot -d locales -D quiz_bot -l en
+
+pybabel compile -d locales -D quiz_bot

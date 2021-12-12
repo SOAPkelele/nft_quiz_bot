@@ -1,0 +1,121 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-12-13 00:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: app/handlers/start.py:20
+msgid "Выберите ваш язык"
+msgstr ""
+
+#: app/handlers/menu/main_menu.py:12
+msgid "Они пишут о нас"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:49
+msgid "Доступные тесты:"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:56
+msgid "#{test_num}. {title}"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:61
+msgid "Вы прошли все тесты!"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:62 app/keyboards/menu.py:24
+msgid "Вернуться назад"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:72
+msgid "Вы не прошли ни одного теста!"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:76
+msgid "<b>Тест #{test_num}</b>"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:77
+msgid ""
+"Поздравляем! Вы ответили правильно на <b>{correct_answers}</b> вопросов "
+"из <b>{total_questions}</b>. Вы заработали <b>{earned_points}</b> баллов."
+" Вы круче <b>{percent_better}%</b> юзеров."
+msgstr ""
+
+#: app/handlers/quiz/quiz.py:79
+msgid "Вы заработали <b>{points}</b> баллов!"
+msgstr ""
+
+#: app/handlers/quiz/quiz.py:111
+msgid ""
+"Вы уверены, что хотите преждевременно завершить тест? У вас больше не "
+"будет возможности его пройти."
+msgstr ""
+
+#: app/handlers/quiz/quiz.py:163
+msgid ""
+"Поздравляем, @{username}!\n"
+"Вы ответили правильно на {correct_answers} вопросов из {total_questions}."
+"\n"
+"Вы заработали {earned_points} баллов.\n"
+"Вы круче {percent_better}% юзеров."
+msgstr ""
+
+#: app/keyboards/menu.py:13
+msgid "Узнать больше о LocalTrade"
+msgstr ""
+
+#: app/keyboards/menu.py:15
+msgid "Доступные тесты"
+msgstr ""
+
+#: app/keyboards/menu.py:16
+msgid "Пройденные тесты"
+msgstr ""
+
+#: app/keyboards/menu.py:17
+msgid "Сменить язык"
+msgstr ""
+
+#: app/keyboards/menu.py:31
+msgid "Главное меню"
+msgstr ""
+
+#: app/keyboards/menu.py:32
+msgid "Пройти другой тест"
+msgstr ""
+
+#: app/keyboards/menu.py:39
+msgid "Начать тест"
+msgstr ""
+
+#: app/keyboards/menu.py:40
+msgid "Закрыть тест"
+msgstr ""
+
+#: app/keyboards/menu.py:47
+msgid "Завершить тест"
+msgstr ""
+
+#: app/keyboards/menu.py:54
+msgid "Да, завершить тест"
+msgstr ""
+
+#: app/keyboards/menu.py:55
+msgid "Нет, продолжить тест"
+msgstr ""
+
