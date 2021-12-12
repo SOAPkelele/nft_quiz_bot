@@ -156,13 +156,14 @@ async def save_stats(db: Database, bot: Bot,
     score = await db.get_user_score(user_id=user.id, test_id=test_id)
     msg = i18n("Поздравляем, @{username}!\n"
                "Вы ответили правильно на {correct_answers} "
-               "вопросов из {total_questions}.\n"   
+               "вопросов из {total_questions}.\n"
                "Вы заработали {earned_points} баллов.\n"
-               "Вы круче {percent_better}% юзеров.").format(username=user.username,
-                                                            correct_answers=score.correct_answers,
-                                                            total_questions=score.total_questions,
-                                                            earned_points=score.earned_points,
-                                                            percent_better=int(score.percent_better))
+               "Вы круче {percent_better}% юзеров.",
+               locale=await db.get_user_lang(user.id) or "en").format(username=user.username,
+                                                                      correct_answers=score.correct_answers,
+                                                                      total_questions=score.total_questions,
+                                                                      earned_points=score.earned_points,
+                                                                      percent_better=int(score.percent_better))
 
     loop = asyncio.get_event_loop()
     try:
