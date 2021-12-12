@@ -7,7 +7,7 @@ from app.misc import i18n
 from app.settings import DB_KEY
 from app.utils.db import Database
 
-i18n = i18n.gettext
+gettext = i18n.gettext
 
 
 async def start_handler(message: types.Message):
@@ -17,7 +17,7 @@ async def start_handler(message: types.Message):
 
 
 async def send_language_keyboard(message: types.Message):
-    await message.answer(i18n("Выберите ваш язык"), reply_markup=LanguageKb().get())
+    await message.answer(gettext("Выберите ваш язык"), reply_markup=LanguageKb().get())
 
 
 async def register_user(message: types.Message):

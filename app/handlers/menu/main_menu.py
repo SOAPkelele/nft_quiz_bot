@@ -7,9 +7,10 @@ from app.misc import i18n
 from app.settings import MENU_MESSAGE
 from app.utils import delete_message
 
-i18n = i18n.gettext
+gettext = i18n.gettext
 
-local_trade_info = "Они пишут о нас:\n\n" \
+about_us = gettext("Они пишут о нас")
+local_trade_info = f"{about_us}:\n\n" \
                    "<b>ENTREPRENEUR</b>\n" \
                    "https://www.entrepreneur.com/article/388049\n\n" \
                    "<b>FORBES</b>\n" \
@@ -43,13 +44,13 @@ async def menu_handler(call: types.CallbackQuery):
     logger.info(f"User [{call.from_user.id}] requested menu")
     await call.answer(cache_time=60)
     await delete_message(call.message)
-    await call.message.answer(MENU_MESSAGE, reply_markup=MenuKb().main(i18n))
+    await call.message.answer(MENU_MESSAGE, reply_markup=MenuKb().main(gettext))
 
 
 async def learn_more_handler(call: types.CallbackQuery):
     logger.info(f"User [{call.from_user.id}] wants to learn more about LocalTrade")
-    await call.message.edit_text(i18n(local_trade_info),
-                                 reply_markup=MenuKb().back_to_menu(i18n),
+    await call.message.edit_text(gettext(local_trade_info),
+                                 reply_markup=MenuKb().back_to_menu(gettext),
                                  disable_web_page_preview=True)
 
 

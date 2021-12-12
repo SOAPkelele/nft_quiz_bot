@@ -16,7 +16,7 @@ from app.states import TEST_IN_PROGRESS
 from app.utils import remove_kb, delete_message, score_photo
 from app.utils.db import Database
 
-i18n = i18n.gettext
+gettext = i18n.gettext
 
 stickers = [
     "CAACAgIAAxkBAAEM_vths7lWZE7FtA8om64ecMQu5QrSbAACQxIAAhgTeEnLSBhi2slRjSME",
@@ -43,7 +43,7 @@ async def begin_quiz_handler(call: types.CallbackQuery, callback_data: Dict, sta
     await state.set_state(TEST_IN_PROGRESS)
 
     await send_sticker(chat_id=call.from_user.id, bot=call.bot)
-    msg = await call.message.answer_poll(**question.poll_info, reply_markup=MenuKb().finish_quiz(i18n))
+    msg = await call.message.answer_poll(**question.poll_info, reply_markup=MenuKb().finish_quiz(gettext))
 
     await state.update_data(test_id=test_id,
                             question_number=0,
@@ -76,7 +76,7 @@ async def poll_answer_handler(poll: types.PollAnswer):
         earned_points += previous_question.points
         correct_answers += 1
         await bot.send_message(
-            text=i18n("Вы заработали <b>{points}</b> баллов!").format(points=previous_question.points),
+            text=gettext("Вы заработали <b>{points}</b> баллов!").format(points=previous_question.points),
             chat_id=poll.user.id)
         await state.update_data(points=earned_points,
                                 answers=correct_answers)
@@ -95,7 +95,8 @@ async def poll_answer_handler(poll: types.PollAnswer):
         return
 
     await send_sticker(chat_id=poll.user.id, bot=poll.bot)
-    msg = await bot.send_poll(chat_id=poll.user.id, **new_question.poll_info, reply_markup=MenuKb().finish_quiz(i18n))
+    msg = await bot.send_poll(chat_id=poll.user.id, **new_question.poll_info,
+                              reply_markup=MenuKb().finish_quiz(gettext))
 
     await state.update_data(test_id=test_id,
                             answer_id=new_question.correct_answer_id,
@@ -107,9 +108,9 @@ async def finish_test_handler(call: types.CallbackQuery):
     logger.info(f"User [{call.from_user.id}] wants to finish test")
 
     await delete_message(call.message)
-    await call.message.answer(i18n("Вы уверены, что хотите преждевременно завершить тест? "
-                                   "У вас больше не будет возможности его пройти."),
-                              reply_markup=MenuKb().confirm_finishing_quiz(i18n))
+    await call.message.answer(gettext("Вы уверены, что хотите преждевременно завершить тест? "
+                                      "У вас больше не будет возможности его пройти."),
+                              reply_markup=MenuKb().confirm_finishing_quiz(gettext))
 
 
 async def continue_test_handler(call: types.CallbackQuery, state: FSMContext):
@@ -123,7 +124,7 @@ async def continue_test_handler(call: types.CallbackQuery, state: FSMContext):
                                   test_id=int(data.get("test_id")),
                                   question_number=int(data.get("question_number")))
 
-    msg = await call.message.answer_poll(**new_question.poll_info, reply_markup=MenuKb().finish_quiz(i18n))
+    msg = await call.message.answer_poll(**new_question.poll_info, reply_markup=MenuKb().finish_quiz(gettext))
 
     await state.update_data(msg_id=msg.message_id,
                             answer_id=new_question.correct_answer_id)
@@ -154,16 +155,16 @@ async def save_stats(db: Database, bot: Bot,
                              points=earned_points)
 
     score = await db.get_user_score(user_id=user.id, test_id=test_id)
-    msg = i18n("Поздравляем, @{username}!\n"
-               "Вы ответили правильно на {correct_answers} "
-               "вопросов из {total_questions}.\n"
-               "Вы заработали {earned_points} баллов.\n"
-               "Вы круче {percent_better}% юзеров.",
-               locale=await db.get_user_lang(user.id) or "en").format(username=user.username,
-                                                                      correct_answers=score.correct_answers,
-                                                                      total_questions=score.total_questions,
-                                                                      earned_points=score.earned_points,
-                                                                      percent_better=int(score.percent_better))
+    msg = gettext("Поздравляем, @{username}!\n"
+                  "Вы ответили правильно на {correct_answers} "
+                  "вопросов из {total_questions}.\n"
+                  "Вы заработали {earned_points} баллов.\n"
+                  "Вы круче {percent_better}% юзеров.",
+                  locale=await db.get_user_lang(user.id) or "en").format(username=user.username,
+                                                                         correct_answers=score.correct_answers,
+                                                                         total_questions=score.total_questions,
+                                                                         earned_points=score.earned_points,
+                                                                         percent_better=int(score.percent_better))
 
     loop = asyncio.get_event_loop()
     try:
@@ -174,7 +175,7 @@ async def save_stats(db: Database, bot: Bot,
     except Exception as exp:
         logger.exception(exp)
         await bot.send_message(chat_id=user.id, text=msg)
-    await bot.send_message(chat_id=user.id, text=MENU_MESSAGE, reply_markup=MenuKb().main(i18n))
+    await bot.send_message(chat_id=user.id, text=MENU_MESSAGE, reply_markup=MenuKb().main(gettext))
 
 
 async def get_poll(db: Database, user_id: int, test_id: int, question_number: int):

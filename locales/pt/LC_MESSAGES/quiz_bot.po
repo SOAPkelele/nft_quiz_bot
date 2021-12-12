@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-03 21:42+0300\n"
-"PO-Revision-Date: 2021-12-03 21:38+0300\n"
+"POT-Creation-Date: 2021-12-12 23:23+0300\n"
+"PO-Revision-Date: 2021-12-12 22:01+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -18,89 +18,112 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: app/handlers/start.py:19
+#: app/handlers/start.py:20
 msgid "Выберите ваш язык"
 msgstr "Escolha seu idioma"
 
-#: app/handlers/menu/main_menu.py:26
-msgid "Информация о LocalTrade"
-msgstr "Saiba mais sobre LocalTrade"
-
-#: app/handlers/menu/tests_menu.py:39
+#: app/handlers/menu/tests_menu.py:49
 msgid "Доступные тесты:"
 msgstr "Testes disponíveis:"
 
-#: app/handlers/menu/tests_menu.py:49
+#: app/handlers/menu/tests_menu.py:56
+msgid "#{test_num}. {title}"
+msgstr ""
+
+#: app/handlers/menu/tests_menu.py:61
 msgid "Вы прошли все тесты!"
-msgstr ""
+msgstr "Você fez todos os testes!"
 
-#: app/handlers/quiz/quiz.py:56
-msgid "Вы заработали <b>{points}</b> баллов!"
-msgstr ""
+#: app/handlers/menu/tests_menu.py:62 app/keyboards/menu.py:24
+msgid "Вернуться назад"
+msgstr "Voltar"
 
-#: app/handlers/quiz/quiz.py:71 app/handlers/quiz/quiz.py:133
+#: app/handlers/menu/tests_menu.py:72
+msgid "Вы не прошли ни одного теста!"
+msgstr "Você não fez nenhum teste!"
+
+#: app/handlers/menu/tests_menu.py:76
+msgid "<b>Тест #{test_num}</b>"
+msgstr "<b>Teste #{test_num}</b>"
+
+#: app/handlers/menu/tests_menu.py:77
 msgid ""
 "Поздравляем! Вы ответили правильно на <b>{correct_answers}</b> вопросов "
 "из <b>{total_questions}</b>. Вы заработали <b>{earned_points}</b> баллов."
 " Вы круче <b>{percent_better}%</b> юзеров."
 msgstr ""
-"Parabéns! Você respondeu corretamente <b>{correct_answers}</b> perguntas de <b>{total_questions}</b>. "
-"Você ganhou <b>{earned_points}</b> pontos. Você teve uma pontuação melhor do que <b>{percent_better}%</b> dos usuários."
+"Parabéns! Você respondeu corretamente <b>{correct_answers}</b> perguntas "
+"de <b>{total_questions}</b>. Você ganhou <b>{earned_points}</b> pontos. "
+"Você teve uma pontuação melhor do que <b>{percent_better}%</b> dos "
+"usuários."
 
-#: app/handlers/quiz/quiz.py:95
+#: app/handlers/quiz/quiz.py:79
+msgid "Вы заработали <b>{points}</b> баллов!"
+msgstr "Você ganhou <b>{points}</b> pontos!"
+
+#: app/handlers/quiz/quiz.py:111
 msgid ""
 "Вы уверены, что хотите преждевременно завершить тест? У вас больше не "
 "будет возможности его пройти."
-msgstr "Tem certeza de que deseja encerrar o teste prematuramente? Você não poderá mais fazê-lo. "
+msgstr ""
+"Tem certeza de que deseja encerrar o teste prematuramente? Você não "
+"poderá mais fazê-lo."
 
-#: app/keyboards/inline/menu.py:14
+#: app/handlers/quiz/quiz.py:163
+msgid ""
+"Поздравляем, @{username}!\n"
+"Вы ответили правильно на {correct_answers} вопросов из {total_questions}."
+"\n"
+"Вы заработали {earned_points} баллов.\n"
+"Вы круче {percent_better}% юзеров."
+msgstr ""
+"Parabéns, @{username}!\n"
+"Você respondeu corretamente {correct_answers} perguntas de "
+"{total_questions}.\n"
+"Você ganhou {earned_points} pontos.\n"
+"Você teve uma pontuação melhor do que {percent_better}% dos usuários."
+
+#: app/keyboards/menu.py:13
 msgid "Узнать больше о LocalTrade"
 msgstr "Saiba mais sobre LocalTrade"
 
-#: app/keyboards/inline/menu.py:18
+#: app/keyboards/menu.py:15
 msgid "Доступные тесты"
 msgstr "Testes disponíveis"
 
-#: app/keyboards/inline/menu.py:22
+#: app/keyboards/menu.py:16
 msgid "Пройденные тесты"
 msgstr "Testes feitos"
 
-#: app/keyboards/inline/menu.py:26
+#: app/keyboards/menu.py:17
 msgid "Сменить язык"
-msgstr ""
+msgstr "Mudar idioma"
 
-#: app/keyboards/inline/menu.py:33
-msgid "Вернуться назад"
-msgstr "Voltar"
-
-#: app/keyboards/inline/tests.py:17
-msgid "Начать тест"
-msgstr "Começar o teste"
-
-#: app/keyboards/inline/tests.py:18
-msgid "Закрыть тест"
-msgstr "Fechar teste"
-
-#: app/keyboards/inline/tests.py:25
-msgid "Завершить тест"
-msgstr "Terminar o teste"
-
-#: app/keyboards/inline/tests.py:31
-msgid "Да, завершить тест"
-msgstr "Sim, terminar o teste"
-
-#: app/keyboards/inline/tests.py:34
-msgid "Нет, продолжить тест"
-msgstr "Não, continuar o teste"
-
-#: app/keyboards/inline/tests.py:43
+#: app/keyboards/menu.py:31
 msgid "Главное меню"
 msgstr "Menu principal"
 
-#: app/keyboards/inline/tests.py:47
+#: app/keyboards/menu.py:32
 msgid "Пройти другой тест"
 msgstr "Fazer outro teste"
 
-#~ msgid "Узнать больше о локалтрейд"
-#~ msgstr "Saiba mais sobre LocalTrade"
+#: app/keyboards/menu.py:39
+msgid "Начать тест"
+msgstr "Começar o teste"
+
+#: app/keyboards/menu.py:40
+msgid "Закрыть тест"
+msgstr "Fechar teste"
+
+#: app/keyboards/menu.py:47
+msgid "Завершить тест"
+msgstr "Terminar o teste"
+
+#: app/keyboards/menu.py:54
+msgid "Да, завершить тест"
+msgstr "Sim, terminar o teste"
+
+#: app/keyboards/menu.py:55
+msgid "Нет, продолжить тест"
+msgstr "Não, continuar o teste"
 
