@@ -18,8 +18,9 @@ async def setup_default_commands(dp):
         logger.info(admin)
         await dp.bot.set_my_commands(
             [
-                types.BotCommand("start", "Start"),
-                types.BotCommand("stats", "Результаты тестов")
+                types.BotCommand("start", "start bot"),
+                types.BotCommand("stats", "Результаты тестов (admin)"),
+                types.BotCommand("refresh", "Сбросить свою статистику (admin)")
             ],
             scope=BotCommandScopeChat(admin)
         )
