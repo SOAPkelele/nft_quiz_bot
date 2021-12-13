@@ -94,7 +94,6 @@ async def poll_answer_handler(poll: types.PollAnswer):
                          earned_points=earned_points)
         return
 
-    await asyncio.sleep(1)
     await send_sticker(chat_id=poll.user.id, bot=poll.bot)
     msg = await bot.send_poll(chat_id=poll.user.id, **new_question.poll_info,
                               reply_markup=MenuKb().finish_quiz(gettext))
