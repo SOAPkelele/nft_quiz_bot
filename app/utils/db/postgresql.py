@@ -187,3 +187,9 @@ class Database(DatabaseBase):
         values = (test_id,)
         res = await self.pool.fetch(sql, *values)
         return [TestStats(**stat) for stat in res] if res else None
+
+    async def remove_stats(self, user_id: int):
+        sql = """DELETE FROM user_tests
+                 WHERE user_id = $1"""
+        values = (user_id,)
+        await self.pool.execute(sql, *values)

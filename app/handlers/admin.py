@@ -75,3 +75,10 @@ async def cancel_state_handler(message: types.Message, state: FSMContext):
 
     await message.answer("Стейт сброшен!")
     await state.finish()
+
+
+async def remove_stats_handler(message: types.Message):
+    logger.info(f"User [{message.from_user.id}] removed stats handler")
+
+    await message.answer("Данные сброшены!")
+    await message.bot[DB_KEY].remove_stats(message.from_user.id)

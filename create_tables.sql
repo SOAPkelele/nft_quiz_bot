@@ -20,17 +20,14 @@ create table if not exists user_tests
     id              serial
         constraint user_tests_pk
             primary key,
-    user_id         bigint,
-    test_id         integer           not null,
-    correct_answers integer default 0 not null,
-    points          integer default 0 not null
+    user_id         bigint  not null,
+    test_id         integer not null,
+    correct_answers integer default 0,
+    points          integer default 0
 );
 
 alter table user_tests
     owner to soap;
-
-create unique index if not exists user_tests_user_id_uindex
-    on user_tests (user_id);
 
 create table if not exists tests
 (
