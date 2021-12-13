@@ -1,4 +1,4 @@
-version: '3.1'
+version: "3.8"
 
 services:
   # Если хотите подключить базу данных
@@ -21,16 +21,13 @@ services:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
   redis:
-    container_name: "quiz-bot-redis"
-    image: redis:6.0-alpine
-    hostname: redis
+    container_name: redis
+    image: redis:alpine
     restart: always
     networks:
       - botnet
     volumes:
-      - "redis_config:/usr/local/etc/redis"
-      - "redis_data:/data"
-    command: "redis-server /usr/local/etc/redis/redis.conf"
+      - /redis-data:/var/lib/redis
 
   tgbot:
     container_name: lt_quiz_bot
@@ -57,17 +54,3 @@ networks:
   botnet:
     # указывается драйвер сети
     driver: bridge
-
-volumes:
-    redis_config:
-        driver: local
-        driver_opts:
-            type: 'none'
-            o: 'bind'
-            device: './redis-config'
-    redis_data:
-        driver: local
-        driver_opts:
-            type: 'none'
-            o: 'bind'
-            device: './redis-data'
