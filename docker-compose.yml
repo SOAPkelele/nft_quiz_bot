@@ -1,10 +1,7 @@
 version: "3.1"
 
 services:
-  # Если хотите подключить базу данных
   db:
-    # ВНИМАТЕЛЬНО! ВОТ ЭТО НАЗВАНИЕ СЕРВИСА - db - ДОЛЖНО БЫТЬ УКАЗАНО В БОТЕ КАК host В ПОДКЛЮЧЕНИИ К БАЗЕ ИЗ БОТА
-    # ТО ЕСТЬ НЕ АЙПИШНИК И НЕ ЛОКАЛХОСТ, А db
     container_name: database
     image: postgres:alpine
     environment:
@@ -13,7 +10,7 @@ services:
       POSTGRES_DB: $POSTGRES_DB
     restart: always
     ports:
-      - "5432:5432"
+      - "1337:5432"
     networks:
       - botnet
     volumes:
